@@ -1,0 +1,112 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    perspective: 1000px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.background {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    perspective: inherit;
+   
+}
+
+.left-image, .right-image {
+    flex: 1;
+    height: 100%;
+    background-size: cover;
+    transition: transform 0.8s ease-in-out; 
+    transform-style: preserve-3d;
+}
+
+.left-image {
+    background-image: url('left-image1.jpg');
+    transform: translateY(0%);
+}
+
+.right-image {
+    background-image: url('right-image.jpg');
+    transform: translateY(0%);
+}
+
+.contact-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 20px;
+    cursor: pointer; 
+}
+
+.card-content {
+    text-align: center;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: opacity 0.5s ease-in-out; 
+    opacity: 1;
+}
+
+.contact-details {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.contact-details img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.details {
+    margin-left: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.contact-card:hover .card-content {
+    opacity: 0;
+}
+
+.contact-card:hover .contact-details {
+    display: flex;
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translate(-50%, -50%) rotateY(10deg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
